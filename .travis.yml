@@ -13,7 +13,7 @@
 language: python
 
 
-dist: bionic
+dist: xenial
 
 services:
   - xvfb
