@@ -139,7 +139,8 @@ before_install:
   case "$TRAVIS_OS_NAME" in
   linux)
     export PATH=/usr/lib/ccache:$PATH;
-    python -m pip install PyQt5==5.15.2;
+    #python -m pip install PyQt5==5.15.2;
+    sudo apt install python3-pyqt5;
     ;;
   osx)
     ci/osx-deps
