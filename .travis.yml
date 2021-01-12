@@ -13,7 +13,7 @@
 language: python
 
 
-dist: xenial
+dist: focal
 
 services:
   - xvfb
@@ -86,32 +86,6 @@ env:
 
 matrix:
   include:
-    - python: 3.7
-      env:
-        - PINNEDVERS='-c requirements/testing/minver.txt'
-        - DELETE_FONT_CACHE=1
-    - python: 3.7
-      env:
-        - EXTRAREQS='-r requirements/testing/travis_extra.txt'
-    - python: 3.8
-      env:
-        - EXTRAREQS='-r requirements/testing/travis_extra.txt'
-    - python: "nightly"
-      env:
-        - PRE=--pre
-    - os: osx
-      osx_image: xcode9
-      language: generic  # https://github.com/travis-ci/travis-ci/issues/2312
-      only: master
-      cache:
-        # As for now travis caches only "$HOME/.cache/pip"
-        # https://docs.travis-ci.com/user/caching/#pip-cache
-        pip: false
-        directories:
-          - $HOME/Library/Caches/pip
-          # `cache` does not support `env`-like `global` so copy-paste from top
-          - $HOME/.ccache  # https://github.com/travis-ci/travis-ci/issues/5853
-          - $HOME/.cache/matplotlib
     - python: 3.7
       arch: ppc64le
       env:
