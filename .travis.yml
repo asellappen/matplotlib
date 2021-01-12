@@ -11,9 +11,7 @@
 # ----------------------------------------------------------------------------
 
 language: python
-arch:
-    - amd64
-    - ppc64le
+
 
 dist: bionic
 
@@ -114,6 +112,24 @@ matrix:
           # `cache` does not support `env`-like `global` so copy-paste from top
           - $HOME/.ccache  # https://github.com/travis-ci/travis-ci/issues/5853
           - $HOME/.cache/matplotlib
+    - python: 3.7
+      arch: ppc64le
+      env:
+        - PINNEDVERS='-c requirements/testing/minver.txt'
+        - DELETE_FONT_CACHE=1
+    - python: 3.7
+      arch: ppc64le
+      env:
+        - EXTRAREQS='-r requirements/testing/travis_extra.txt'
+    - python: 3.8
+      arch: ppc64le
+      env:
+        - EXTRAREQS='-r requirements/testing/travis_extra.txt'
+    - python: "nightly"
+      arch: ppc64le
+      env:
+        - PRE=--pre
+              
   allow_failures:
     - python: "nightly"
 
