@@ -14,10 +14,8 @@ language: python
 arch:
     - amd64
     - ppc64le
-python:
-    - 3.7
-    - 3.8
-dist: xenial
+
+dist: bionic
 
 services:
   - xvfb
